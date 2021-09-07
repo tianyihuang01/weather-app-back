@@ -22,7 +22,9 @@ const getCityByCityId = async (req, res) => {
 
 const getCityByField = async (req, res) => {
   const { name } = req.query;
-  const cities = await City.find({ name: new RegExp(name, 'i') }).exec();
+  const cities = await City.find({ name: new RegExp(name, 'i') })
+    .limit(20)
+    .exec();
   if (!cities) return res.sendStatus(404);
   return res.json(cities);
 };
