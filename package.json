@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "pm2 start index.js --name jrWEATHER",
+    "poststart": "pm2 log jrWEATHER",
+    "stop": "pm2 stop jrWEATHER",
+    "orgstart": "node index.js",
     "dev": "nodemon index.js",
     "debug": "nodemon --inspect src/app.js",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,json}\" && eslint --fix \"./__tests__/**/*.js\"",
@@ -31,6 +34,7 @@
     "helmet": "^4.6.0",
     "mongoose": "^6.0.4",
     "morgan": "^1.10.0",
+    "pm2": "^5.1.1",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.1.6",
     "winston": "^3.3.3"
