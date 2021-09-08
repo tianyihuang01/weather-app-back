@@ -3,7 +3,6 @@ const { getCityByCityId, getCityByField } = require('../controllers/cities');
 
 const router = express.Router();
 
-// router.get('/', getAllCities);
 router.get('/:id', getCityByCityId);
 router.get('/', getCityByField);
 
